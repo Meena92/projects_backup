@@ -1,0 +1,476 @@
+<?xml version="1.0" ?>
+
+<VSModel name="createReceiptReference" version="5">
+
+<meta>
+   <create version="10.0.0" buildNumber="10.0.0.431" author="admin" date="04/16/2019" host="RB-DV-DPVMLIS04" />
+   <lastEdited version="10.0.0" buildNumber="10.0.0.431" author="admin" date="04/19/2019" host="RB-DV-DPVMLIS04" />
+</meta>
+
+<id>2DCE1E52602511E9B04B000D3AB27EF1</id>
+<IsInProject>true</IsInProject>
+<sig>ZWQ9NSZ0Y3Y9NSZsaXNhdj0xMC4wLjAgKDEwLjAuMC40MzEpJm5vZGVzPS0xODMzMTYxMTkw</sig>
+<subprocess>false</subprocess>
+
+<initState>
+</initState>
+
+<resultState>
+</resultState>
+
+<deletedProps>
+</deletedProps>
+
+<associatedResources>
+<file type="rawTransactionStore">{{LISA_RELATIVE_PROJ_ROOT}}/Data/CRR.vts</file>
+<file type="session">{{LISA_RELATIVE_PROJ_ROOT}}/VirtualServices/VRScenarios/CRR.vr2</file>
+</associatedResources>
+    <Node name="Virtual HTTPS Listener 9076" log=""
+          type="com.itko.lisa.vse.stateful.protocol.http.HttpListenStep" 
+          version="1" 
+          uid="null" 
+          think="0" 
+          useFilters="true" 
+          quiet="true" 
+          next="Virtual Service Router" > 
+
+
+      <!-- Filters -->
+      <Filter type="com.itko.lisa.vse.stateful.common.DataProtocolFilter">
+        <valueToFilterKey>lisa.vse.request</valueToFilterKey>
+<dataProtocol>com.itko.lisa.vse.stateful.protocol.json.JSONDataProtocolHandler2</dataProtocol>
+<processRequests>true</processRequests>
+<processResponses>false</processResponses>
+<CustomFilterData>
+</CustomFilterData>
+      </Filter>
+
+      <Filter type="com.itko.lisa.vse.stateful.common.DataProtocolFilter">
+        <valueToFilterKey>lisa.vse.request</valueToFilterKey>
+<dataProtocol>com.itko.lisa.vse.stateful.protocol.rest.RestDataProtocol</dataProtocol>
+<processRequests>true</processRequests>
+<processResponses>false</processResponses>
+<CustomFilterData>
+<requestSideUnparsed>true</requestSideUnparsed>
+<rules>
+<rule>
+<operation>POST /createReceiptReference/</operation>
+</rule>
+</rules>
+</CustomFilterData>
+      </Filter>
+
+      <Filter type="com.itko.lisa.vse.stateful.common.DataProtocolFilter">
+        <valueToFilterKey>lisa.vse.request</valueToFilterKey>
+<dataProtocol>com.itko.lisa.vse.stateful.common.datahandler.RequestDataManagerProtocolHandler</dataProtocol>
+<processRequests>true</processRequests>
+<processResponses>false</processResponses>
+<CustomFilterData>
+<actions>
+<action>copy meta_data &quot;Authorization&quot; to argument &quot;Authorization&quot;</action>
+</actions>
+</CustomFilterData>
+      </Filter>
+
+      <Filter type="com.ca.lisa.apptest.json.FilterJSONGet">
+        <valueToFilterKey>lisa.vse.http.current.transaction.body</valueToFilterKey>
+      <jsonPath>$.Header.ActivityName</jsonPath>
+      <valueProp>CRR_ACTIVITY_NAME</valueProp>
+      <lengthProp></lengthProp>
+      </Filter>
+
+      <Filter type="com.ca.lisa.apptest.json.FilterJSONGet">
+        <valueToFilterKey>lisa.vse.http.current.transaction.body</valueToFilterKey>
+      <jsonPath>$.Header.ActivityStatus</jsonPath>
+      <valueProp>CRR_ACTIVITY_STATUS</valueProp>
+      <lengthProp></lengthProp>
+      </Filter>
+
+      <Filter type="com.ca.lisa.apptest.json.FilterJSONGet">
+        <valueToFilterKey>lisa.vse.http.current.transaction.body</valueToFilterKey>
+      <jsonPath>$.Header.ActivityStatusEnum</jsonPath>
+      <valueProp>CRR_ACTIVITY_ENUM</valueProp>
+      <lengthProp></lengthProp>
+      </Filter>
+
+      <Filter type="com.ca.lisa.apptest.json.FilterJSONGet">
+        <valueToFilterKey>lisa.vse.http.current.transaction.body</valueToFilterKey>
+      <jsonPath>$.Header.CorrelationId</jsonPath>
+      <valueProp>CRR_CORRELATION_ID</valueProp>
+      <lengthProp></lengthProp>
+      </Filter>
+
+      <Filter type="com.ca.lisa.apptest.json.FilterJSONGet">
+        <valueToFilterKey>lisa.vse.http.current.transaction.body</valueToFilterKey>
+      <jsonPath>$.Header.Destination</jsonPath>
+      <valueProp>CRR_DESTINATION</valueProp>
+      <lengthProp></lengthProp>
+      </Filter>
+
+      <Filter type="com.ca.lisa.apptest.json.FilterJSONGet">
+        <valueToFilterKey>lisa.vse.http.current.transaction.body</valueToFilterKey>
+      <jsonPath>$.Header.MessageId</jsonPath>
+      <valueProp>CRR_MSG_ID</valueProp>
+      <lengthProp></lengthProp>
+      </Filter>
+
+      <Filter type="com.ca.lisa.apptest.json.FilterJSONGet">
+        <valueToFilterKey>lisa.vse.http.current.transaction.body</valueToFilterKey>
+      <jsonPath>$.Header.Source</jsonPath>
+      <valueProp>CRR_SRC</valueProp>
+      <lengthProp></lengthProp>
+      </Filter>
+
+      <Filter type="com.ca.lisa.apptest.json.FilterJSONGet">
+        <valueToFilterKey>lisa.vse.http.current.transaction.body</valueToFilterKey>
+      <jsonPath>$.Header.TimeStamp</jsonPath>
+      <valueProp>CRR_TS</valueProp>
+      <lengthProp></lengthProp>
+      </Filter>
+
+      <Filter type="com.ca.lisa.apptest.json.FilterJSONGet">
+        <valueToFilterKey>lisa.vse.http.current.transaction.body</valueToFilterKey>
+      <jsonPath>$.Payload.ReceiptRequest.ReceiptReference</jsonPath>
+      <valueProp>CRR_RECEIPT_REF</valueProp>
+      <lengthProp></lengthProp>
+      </Filter>
+
+      <Filter type="com.ca.lisa.apptest.json.FilterJSONGet">
+        <valueToFilterKey>lisa.vse.http.current.transaction.body</valueToFilterKey>
+      <jsonPath>$.Payload.ReceiptRequest.Channel</jsonPath>
+      <valueProp>CRR_CHANNEL</valueProp>
+      <lengthProp></lengthProp>
+      </Filter>
+
+      <Filter type="com.ca.lisa.apptest.json.FilterJSONGet">
+        <valueToFilterKey>lisa.vse.http.current.transaction.body</valueToFilterKey>
+      <jsonPath>$.Payload.ReceiptRequest</jsonPath>
+      <valueProp>Length_of Arguments</valueProp>
+      <lengthProp>Length_of Arguments</lengthProp>
+      </Filter>
+
+
+      <!-- Assertions -->
+<CheckResult assertTrue="true" name="Scripted Assertion" type="com.itko.lisa.test.AssertByScript">
+<log>Assertion name: Scripted Assertion checks for: true is of type: Assert by Script Execution.</log>
+<then>Mandate_Parmeters_Missing</then>
+<valueToAssertKey></valueToAssertKey>
+        <script>// This script should return a boolean result indicating the assertion is true or false&#13;&#10;if(&#13;&#10;  (!testExec.getStateValue(&quot;Length_of Arguments&quot;).equals(&quot;2&quot;))||&#13;&#10;  (testExec.getStateValue(&quot;CRR_CHANNEL&quot;).equals(&quot;&quot;))&#13;&#10;)&#13;&#10;return true;</script>
+        <language>BeanShell</language>
+        <copyprops>TestExecPropsAndSystemProps</copyprops>
+</CheckResult>
+
+<CheckResult assertTrue="false" name="Check Receipt Length" type="com.itko.lisa.test.CheckResultPropRegEx">
+<log>Assertion name: Check Receipt Length checks for: false is of type: Property Value Expression.</log>
+<then>Error_Length_Receipt</then>
+<valueToAssertKey></valueToAssertKey>
+        <prop>CRR_RECEIPT_REF</prop>
+        <param>^[0-9]{0,10}$</param>
+</CheckResult>
+
+<CheckResult assertTrue="true" name="If being efficient" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Most Efficient, branching to VS Image Response Selection</log>
+<then>VS Image Response Selection</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>EFFICIENT</executionMode>
+</CheckResult>
+
+<outputAsObject>true</outputAsObject>
+<onExceptionStep>abort</onExceptionStep>
+<listenPort>9076</listenPort>
+<bindAddress></bindAddress>
+<basePath>/</basePath>
+<bindOnly>false</bindOnly>
+<useSSL>true</useSSL>
+<sslClientAuthType>none</sslClientAuthType>
+<sslKeystoreFile>{{ssl.server.cert.path}}</sslKeystoreFile>
+<sslKeystorePWEnc>l4a7a7b53fa3b731565c7562801baa5e66449114e0e323b412ac03c0ac993d68bbd198c50fb089597eaf0ea9fcf560958543cce86b9745e08</sslKeystorePWEnc>
+    </Node>
+
+
+    <Node name="Virtual Service Router" log=""
+          type="com.itko.lisa.vse.stateful.VSRouterStep" 
+          version="1" 
+          uid="null" 
+          think="0" 
+          useFilters="true" 
+          quiet="true" 
+          next="VS Image Response Selection" > 
+
+<onerror>abort</onerror>
+<script>// This script must return either an enum entry from ExecutionMode or&#10;// a string that is the name of an enum entry.  The DYNAMIC entry may&#10;// not be returned.  It will be executed for DYNAMIC execution mode&#10;// only.&#10;import com.itko.lisa.vse.ExecutionMode;&#10;&#10;return ExecutionMode.EFFICIENT;&#10;&#10;&#10;/* other values: &#10;&#9;ExecutionMode.TRACK;&#10;&#9;ExecutionMode.STAND_IN;&#10;&#9;ExecutionMode.LIVE;&#10;&#9;ExecutionMode.FAILOVER;&#10;&#9;ExecutionMode.VALIDATION;&#10;&#9;ExecutionMode.LEARNING;&#10;*/&#10;</script>
+<supportedModes>
+<mode>STAND_IN</mode>
+<mode>DYNAMIC</mode>
+<mode>LEARNING</mode>
+<mode>EFFICIENT</mode>
+<mode>VALIDATION</mode>
+<mode>TRACK</mode>
+<mode>LIVE</mode>
+<mode>FAILOVER</mode>
+</supportedModes>
+<liveInvocationStep>Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}</liveInvocationStep>
+    </Node>
+
+
+    <Node name="VS Image Response Selection" log=""
+          type="com.itko.lisa.vse.stateful.ConversationalStep" 
+          version="1" 
+          uid="null" 
+          think="0" 
+          useFilters="true" 
+          quiet="true" 
+          next="Virtual HTTPS Responder" > 
+
+
+      <!-- Data Sets -->
+<readrec>CRR_OTR</readrec>
+
+      <!-- Assertions -->
+<CheckResult assertTrue="true" name="If validating" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Image Validation, branching to Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}</log>
+<then>Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>VALIDATION</executionMode>
+</CheckResult>
+
+<CheckResult assertTrue="true" name="If learning" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Learning, branching to Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}</log>
+<then>Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>LEARNING</executionMode>
+</CheckResult>
+
+<CheckResult assertTrue="true" name="If tracking" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Transaction Tracking, branching to Virtual Service Tracking</log>
+<then>Virtual Service Tracking</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>TRACK</executionMode>
+</CheckResult>
+
+<vsiSource>{{LISA_RELATIVE_PROJ_ROOT}}/VirtualServices/Images/createReceiptReference.vsi</vsiSource>
+<requestPropertyName>lisa.vse.request</requestPropertyName>
+<outputAsObject>true</outputAsObject>
+<liveInvocationStep>Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}</liveInvocationStep>
+<onExceptionStep>abort</onExceptionStep>
+    </Node>
+
+
+    <Node name="Virtual HTTPS Responder" log=""
+          type="com.itko.lisa.vse.stateful.protocol.http.HttpRespondStep" 
+          version="1" 
+          uid="null" 
+          think="0" 
+          useFilters="true" 
+          quiet="false" 
+          next="Virtual HTTPS Listener 9076" > 
+
+<responseList>lisa.vse.response</responseList>
+<onExceptionStep>abort</onExceptionStep>
+    </Node>
+
+
+    <Node name="Error_Length_Receipt" log=""
+          type="com.itko.lisa.vse.stateful.ConversationalStep" 
+          version="1" 
+          uid="3FC3044C603111E9B04B000D3AB27EF1" 
+          think="0" 
+          useFilters="true" 
+          quiet="true" 
+          next="Virtual HTTPS Responder" > 
+
+
+      <!-- Assertions -->
+<CheckResult assertTrue="true" name="If validating" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Image Validation, branching to Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}</log>
+<then>Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>VALIDATION</executionMode>
+</CheckResult>
+
+<CheckResult assertTrue="true" name="If learning" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Learning, branching to Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}</log>
+<then>Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>LEARNING</executionMode>
+</CheckResult>
+
+<CheckResult assertTrue="true" name="If tracking" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Transaction Tracking, branching to Virtual Service Tracking</log>
+<then>Virtual Service Tracking</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>TRACK</executionMode>
+</CheckResult>
+
+<vsiSource>{{LISA_RELATIVE_PROJ_ROOT}}/VirtualServices/Images/Error_length_receipt_CRR.vsi</vsiSource>
+<requestPropertyName>lisa.vse.request</requestPropertyName>
+<outputAsObject>true</outputAsObject>
+<liveInvocationStep>Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}</liveInvocationStep>
+<onExceptionStep>abort</onExceptionStep>
+    </Node>
+
+
+    <Node name="Mandate_Parmeters_Missing" log=""
+          type="com.itko.lisa.vse.stateful.ConversationalStep" 
+          version="1" 
+          uid="DF0DA9E6602D11E9B04B000D3AB27EF1" 
+          think="0" 
+          useFilters="true" 
+          quiet="true" 
+          next="Virtual HTTPS Responder" > 
+
+
+      <!-- Assertions -->
+<CheckResult assertTrue="true" name="If validating" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Image Validation, branching to Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}</log>
+<then>Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>VALIDATION</executionMode>
+</CheckResult>
+
+<CheckResult assertTrue="true" name="If learning" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Learning, branching to Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}</log>
+<then>Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>LEARNING</executionMode>
+</CheckResult>
+
+<CheckResult assertTrue="true" name="If tracking" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Transaction Tracking, branching to Virtual Service Tracking</log>
+<then>Virtual Service Tracking</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>TRACK</executionMode>
+</CheckResult>
+
+<vsiSource>{{LISA_RELATIVE_PROJ_ROOT}}/VirtualServices/Images/Mandate_param_missing_CRR.vsi</vsiSource>
+<requestPropertyName>lisa.vse.request</requestPropertyName>
+<outputAsObject>true</outputAsObject>
+<liveInvocationStep>Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}</liveInvocationStep>
+<onExceptionStep>abort</onExceptionStep>
+    </Node>
+
+
+    <Node name="Virtual HTTPS Live Invocation {{LIVE_INVOCATION_PORT}}" log=""
+          type="com.itko.lisa.vse.stateful.protocol.http.HttpLiveInvocationStep" 
+          version="1" 
+          uid="null" 
+          think="0" 
+          useFilters="true" 
+          quiet="true" 
+          next="Virtual HTTPS Responder" > 
+
+
+      <!-- Assertions -->
+<CheckResult assertTrue="true" name="If validating" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Image Validation, branching to Virtual Service Tracking</log>
+<then>Virtual Service Tracking</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>VALIDATION</executionMode>
+</CheckResult>
+
+<CheckResult assertTrue="true" name="If learning" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Learning, branching to Virtual Service Tracking</log>
+<then>Virtual Service Tracking</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>LEARNING</executionMode>
+</CheckResult>
+
+<outputAsObject>true</outputAsObject>
+<onExceptionStep>Live System Failure</onExceptionStep>
+<requestPropertyName>lisa.vse.request</requestPropertyName>
+<vseLookupStep>Error_Length_Receipt</vseLookupStep>
+<targetServer>{{LIVE_INVOCATION_SERVER}}</targetServer>
+<targetPort>{{LIVE_INVOCATION_PORT}}</targetPort>
+<hostHeaderPassThrough>false</hostHeaderPassThrough>
+<useSSLToServer>false</useSSLToServer>
+<useSSL>false</useSSL>
+    </Node>
+
+
+    <Node name="Virtual Service Tracking" log=""
+          type="com.itko.lisa.vse.stateful.VSTrackingStep" 
+          version="1" 
+          uid="null" 
+          think="0" 
+          useFilters="true" 
+          quiet="true" 
+          next="Virtual HTTPS Responder" > 
+
+<imageResponseProperty>lisa.vse.image.response</imageResponseProperty>
+<liveResponseProperty>lisa.vse.live.response</liveResponseProperty>
+<onExceptionStep>abort</onExceptionStep>
+    </Node>
+
+
+    <Node name="Live System Failure" log=""
+          type="com.itko.lisa.test.NoTransNode" 
+          version="1" 
+          uid="null" 
+          think="0" 
+          useFilters="true" 
+          quiet="true" 
+          next="abort" > 
+
+
+      <!-- Assertions -->
+<CheckResult assertTrue="true" name="If failover" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Failover, branching to VS Image Response Selection</log>
+<then>Error_Length_Receipt</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>FAILOVER</executionMode>
+</CheckResult>
+
+<CheckResult assertTrue="true" name="If standing in" type="com.itko.lisa.vse.stateful.AssertOnExecutionMode">
+<log>Current execution mode is Stand In, branching to Virtual HTTPS Responder</log>
+<then>Virtual HTTPS Responder</then>
+<valueToAssertKey></valueToAssertKey>
+        <executionMode>STAND_IN</executionMode>
+</CheckResult>
+
+    </Node>
+
+
+    <Node name="end" log=""
+          type="com.itko.lisa.test.NormalEnd" 
+          version="1" 
+          uid="2DCE1E54602511E9B04B000D3AB27EF1" 
+          think="0h" 
+          useFilters="true" 
+          quiet="true" 
+          next="fail" > 
+
+    </Node>
+
+
+    <Node name="fail" log=""
+          type="com.itko.lisa.test.Abend" 
+          version="1" 
+          uid="2DCE1E56602511E9B04B000D3AB27EF1" 
+          think="0h" 
+          useFilters="true" 
+          quiet="true" 
+          next="fail" > 
+
+    </Node>
+
+
+    <Node name="abort" log="The test was aborted"
+          type="com.itko.lisa.test.AbortStep" 
+          version="1" 
+          uid="2DCE1E58602511E9B04B000D3AB27EF1" 
+          think="0h" 
+          useFilters="true" 
+          quiet="true" 
+          next="fail" > 
+
+    </Node>
+
+
+    <DataSet type="com.itko.lisa.test.DataSetRandIDGenerator" name="CRR_OTR" atend="" local="false" random="false" maxItemsToFetch="0" >
+<sample>rO0ABXNyABFqYXZhLnV0aWwuSGFzaE1hcAUH2sHDFmDRAwACRgAKbG9hZEZhY3RvckkACXRocmVzaG9sZHhwP0AAAAAAAAx3CAAAABAAAAABdAAVUmFuZG9tIENvZGUgR2VuZXJhdG9ydAALNjJERTQ0M0Q5QzV4</sample>
+<type>Alphanumeric</type>
+<length>11</length>
+<prefix></prefix>
+    </DataSet>
+
+</VSModel>

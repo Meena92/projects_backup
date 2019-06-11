@@ -1,0 +1,118 @@
+<?xml version="1.0" ?>
+
+<serviceImage id="913" name="createReceiptReference" created="2019-04-16.08:52:05.407" lastModified="2019-04-17.08:48:02.216" version="10.0.0" buildNumber="10.0.0.431">
+<st>
+<t id="910" nd="true">
+<sp>
+<t id="916">
+<rq id="917" op="POST /createReceiptReference/" tl="EXACT">
+<ag>
+<p n="Header_ActivityName" t="arg:ANY;false;;;CASE_INSENSITIVE;">string</p>
+<p n="Header_ActivityStatus" t="arg:ANY;false;;;CASE_INSENSITIVE;">string</p>
+<p n="Header_ActivityStatusEnum" t="arg:ANY;false;;;CASE_INSENSITIVE;">string</p>
+<p n="Header_CorrelationId" t="arg:ANY;false;;;CASE_INSENSITIVE;">string</p>
+<p n="Header_Destination" t="arg:EQUALS;true;;;;">CRM</p>
+<p n="Header_MessageId" t="arg:ANY;false;;;CASE_INSENSITIVE;">string</p>
+<p n="Header_MessageType" t="arg:EQUALS;false;;;;">REQUEST</p>
+<p n="Header_Source" t="arg:ANY;false;;;CASE_INSENSITIVE;">CRM</p>
+<p n="Header_TimeStamp" t="arg:ANY;false;;;CASE_INSENSITIVE;">2019-04-16T04:32:34.694Z</p>
+<p n="Payload_ReceiptRequest_Channel" t="arg:ANY;false;;;CASE_INSENSITIVE;">string</p>
+<p n="Payload_ReceiptRequest_ReceiptReference" t="arg:ANY;false;;;CASE_INSENSITIVE;">1345678902</p>
+<p n="Authorization" t="arg:NOT_EQUALS;false;;;CASE_INSENSITIVE;"></p>
+</ag>
+<at>
+<p n="HTTP-Segment-Attr-0">createReceiptReference</p>
+<p n="recorded_raw_request_bytes">ew0KIkhlYWRlciI6ew0KIkFjdGl2aXR5TmFtZSI6InN0cmluZyIsDQoiQWN0aXZpdHlTdGF0dXMiOiJzdHJpbmciLA0KIkFjdGl2aXR5U3RhdHVzRW51bSI6InN0cmluZyIsDQoiQ29ycmVsYXRpb25JZCI6InN0cmluZyIsDQoiRGVzdGluYXRpb24iOiJDUk0iLA0KIk1lc3NhZ2VJZCI6InN0cmluZyIsDQoiTWVzc2FnZVR5cGUiOiJSRVFVRVNUIiwNCiJTb3VyY2UiOiJDUk0iLA0KIlRpbWVTdGFtcCI6IjIwMTktMDQtMTZUMDQ6MzI6MzQuNjk0WiINCn0sDQoiUGF5bG9hZCI6ew0KIlJlY2VpcHRSZXF1ZXN0Ijp7DQoiQ2hhbm5lbCI6InN0cmluZyIsDQoiUmVjZWlwdFJlZmVyZW5jZSI6InN0cmluZyINCn0NCn0NCn0=</p>
+<p n="recorded_raw_request">{&#13;&#10;&quot;Header&quot;:{&#13;&#10;&quot;ActivityName&quot;:&quot;string&quot;,&#13;&#10;&quot;ActivityStatus&quot;:&quot;string&quot;,&#13;&#10;&quot;ActivityStatusEnum&quot;:&quot;string&quot;,&#13;&#10;&quot;CorrelationId&quot;:&quot;string&quot;,&#13;&#10;&quot;Destination&quot;:&quot;CRM&quot;,&#13;&#10;&quot;MessageId&quot;:&quot;string&quot;,&#13;&#10;&quot;MessageType&quot;:&quot;REQUEST&quot;,&#13;&#10;&quot;Source&quot;:&quot;CRM&quot;,&#13;&#10;&quot;TimeStamp&quot;:&quot;2019-04-16T04:32:34.694Z&quot;&#13;&#10;},&#13;&#10;&quot;Payload&quot;:{&#13;&#10;&quot;ReceiptRequest&quot;:{&#13;&#10;&quot;Channel&quot;:&quot;string&quot;,&#13;&#10;&quot;ReceiptReference&quot;:&quot;string&quot;&#13;&#10;}&#13;&#10;}&#13;&#10;}</p>
+</at>
+<m>
+<p n="HTTP-Method">POST</p>
+<p n="HTTP-URI">/createReceiptReference</p>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="Authorization">string</p>
+</m>
+<bd chs="UTF-8">{&#13;&#10;&quot;Header&quot;:{&#13;&#10;&quot;ActivityName&quot;:&quot;string&quot;,&#13;&#10;&quot;ActivityStatus&quot;:&quot;string&quot;,&#13;&#10;&quot;ActivityStatusEnum&quot;:&quot;string&quot;,&#13;&#10;&quot;CorrelationId&quot;:&quot;string&quot;,&#13;&#10;&quot;Destination&quot;:&quot;CRM&quot;,&#13;&#10;&quot;MessageId&quot;:&quot;string&quot;,&#13;&#10;&quot;MessageType&quot;:&quot;REQUEST&quot;,&#13;&#10;&quot;Source&quot;:&quot;CRM&quot;,&#13;&#10;&quot;TimeStamp&quot;:&quot;2019-04-16T04:32:34.694Z&quot;&#13;&#10;},&#13;&#10;&quot;Payload&quot;:{&#13;&#10;&quot;ReceiptRequest&quot;:{&#13;&#10;&quot;Channel&quot;:&quot;string&quot;,&#13;&#10;&quot;ReceiptReference&quot;:&quot;string&quot;&#13;&#10;}&#13;&#10;}&#13;&#10;}</bd>
+</rq>
+<rs>
+<rp id="918" t="0">
+<m>
+<p n="HTTP-Response-Code">200</p>
+<p n="HTTP-Response-Code-Text">OK</p>
+<p n="Server">LISA/Virtual-Environment-Server</p>
+<p n="Date">{{=httpNow()}}</p>
+<p n="X-Powered-By">LISA/{{=lisaVersionString()}}</p>
+</m>
+<bd chs="UTF-8">{&#13;&#10;&quot;Header&quot;:{&#13;&#10;&quot;ActivityName&quot;:&quot;{{CRR_ACTIVITY_NAME}}&quot;,&#13;&#10;&quot;ActivityStatus&quot;:&quot;&quot;,&#13;&#10;&quot;ActivityStatusEnum&quot;:&quot;SUCCESS&quot;,&#13;&#10;&quot;CorrelationId&quot;:&quot;{{CRR_CORRELATION_ID}}&quot;,&#13;&#10;&quot;Destination&quot;:&quot;{{=request_Header_Destination;/*CRM*/}}&quot;,&#13;&#10;&quot;MessageId&quot;:&quot;{{CRR_MSG_ID}}&quot;,&#13;&#10;&quot;MessageType&quot;:&quot;RESPONSE&quot;,&#13;&#10;&quot;Source&quot;:&quot;{{=request_Header_Destination;/*CRM*/}}&quot;,&#13;&#10;&quot;Timestamp&quot;:&quot;{{CRR_TS}}&quot;&#13;&#10;},&#13;&#10;&quot;Payload&quot;:{&#13;&#10;&quot;ReceiptReference&quot;:{&#13;&#10;&quot;ReceiptReference&quot;:&quot;{{CRR_RECEIPT_REF}}&quot;,&#13;&#10;&quot;OTR&quot;:&quot;{{CRR_OTR}}&quot;&#13;&#10;}&#13;&#10;}&#13;&#10;}</bd>
+</rp>
+</rs>
+</t>
+</sp>
+<rq id="921" op="POST /createReceiptReference/" tl="SIGNATURE">
+<ag>
+<p n="Header_ActivityName" t="arg:EQUALS;false;;;;">string</p>
+<p n="Header_ActivityStatus" t="arg:EQUALS;false;;;;">string</p>
+<p n="Header_ActivityStatusEnum" t="arg:EQUALS;false;;;;">string</p>
+<p n="Header_CorrelationId" t="arg:EQUALS;false;;;;">string</p>
+<p n="Header_Destination" t="arg:EQUALS;true;;;;">CRM</p>
+<p n="Header_MessageId" t="arg:EQUALS;false;;;;">string</p>
+<p n="Header_MessageType" t="arg:EQUALS;false;;;;">REQUEST</p>
+<p n="Header_Source" t="arg:EQUALS;false;;;;">CRM</p>
+<p n="Header_TimeStamp" t="arg:EQUALS;false;;;;">2019-04-16T04:32:34.694Z</p>
+<p n="Payload_ReceiptRequest_Channel" t="arg:EQUALS;false;;;;">string</p>
+<p n="Payload_ReceiptRequest_ReceiptReference" t="arg:EQUALS;false;;;;">string</p>
+<p n="Authorization" t="arg:EQUALS;false;;;;">string</p>
+</ag>
+<at>
+<p n="HTTP-Segment-Attr-0">createReceiptReference</p>
+<p n="recorded_raw_request_bytes">ew0KIkhlYWRlciI6ew0KIkFjdGl2aXR5TmFtZSI6InN0cmluZyIsDQoiQWN0aXZpdHlTdGF0dXMiOiJzdHJpbmciLA0KIkFjdGl2aXR5U3RhdHVzRW51bSI6InN0cmluZyIsDQoiQ29ycmVsYXRpb25JZCI6InN0cmluZyIsDQoiRGVzdGluYXRpb24iOiJDUk0iLA0KIk1lc3NhZ2VJZCI6InN0cmluZyIsDQoiTWVzc2FnZVR5cGUiOiJSRVFVRVNUIiwNCiJTb3VyY2UiOiJDUk0iLA0KIlRpbWVTdGFtcCI6IjIwMTktMDQtMTZUMDQ6MzI6MzQuNjk0WiINCn0sDQoiUGF5bG9hZCI6ew0KIlJlY2VpcHRSZXF1ZXN0Ijp7DQoiQ2hhbm5lbCI6InN0cmluZyIsDQoiUmVjZWlwdFJlZmVyZW5jZSI6InN0cmluZyINCn0NCn0NCn0=</p>
+<p n="recorded_raw_request">{&#13;&#10;&quot;Header&quot;:{&#13;&#10;&quot;ActivityName&quot;:&quot;string&quot;,&#13;&#10;&quot;ActivityStatus&quot;:&quot;string&quot;,&#13;&#10;&quot;ActivityStatusEnum&quot;:&quot;string&quot;,&#13;&#10;&quot;CorrelationId&quot;:&quot;string&quot;,&#13;&#10;&quot;Destination&quot;:&quot;CRM&quot;,&#13;&#10;&quot;MessageId&quot;:&quot;string&quot;,&#13;&#10;&quot;MessageType&quot;:&quot;REQUEST&quot;,&#13;&#10;&quot;Source&quot;:&quot;CRM&quot;,&#13;&#10;&quot;TimeStamp&quot;:&quot;2019-04-16T04:32:34.694Z&quot;&#13;&#10;},&#13;&#10;&quot;Payload&quot;:{&#13;&#10;&quot;ReceiptRequest&quot;:{&#13;&#10;&quot;Channel&quot;:&quot;string&quot;,&#13;&#10;&quot;ReceiptReference&quot;:&quot;string&quot;&#13;&#10;}&#13;&#10;}&#13;&#10;}</p>
+</at>
+<m>
+<p n="HTTP-Method">POST</p>
+<p n="HTTP-URI">/createReceiptReference</p>
+<p n="HTTP-Version">HTTP/1.1</p>
+<p n="Authorization">string</p>
+</m>
+<bd chs="UTF-8">{&#13;&#10;&quot;Header&quot;:{&#13;&#10;&quot;ActivityName&quot;:&quot;string&quot;,&#13;&#10;&quot;ActivityStatus&quot;:&quot;string&quot;,&#13;&#10;&quot;ActivityStatusEnum&quot;:&quot;string&quot;,&#13;&#10;&quot;CorrelationId&quot;:&quot;string&quot;,&#13;&#10;&quot;Destination&quot;:&quot;CRM&quot;,&#13;&#10;&quot;MessageId&quot;:&quot;string&quot;,&#13;&#10;&quot;MessageType&quot;:&quot;REQUEST&quot;,&#13;&#10;&quot;Source&quot;:&quot;CRM&quot;,&#13;&#10;&quot;TimeStamp&quot;:&quot;2019-04-16T04:32:34.694Z&quot;&#13;&#10;},&#13;&#10;&quot;Payload&quot;:{&#13;&#10;&quot;ReceiptRequest&quot;:{&#13;&#10;&quot;Channel&quot;:&quot;string&quot;,&#13;&#10;&quot;ReceiptReference&quot;:&quot;string&quot;&#13;&#10;}&#13;&#10;}&#13;&#10;}</bd>
+</rq>
+<rs>
+<rp id="922" t="0">
+<m>
+<p n="HTTP-Response-Code">200</p>
+<p n="HTTP-Response-Code-Text">OK</p>
+<p n="Server">LISA/Virtual-Environment-Server</p>
+<p n="Date">{{=httpNow()}}</p>
+<p n="X-Powered-By">LISA/{{=lisaVersionString()}}</p>
+</m>
+<bd chs="UTF-8">{&#13;&#10;&#9;&quot;Header&quot;: {&#13;&#10;&#9;&#9;&quot;ActivityName&quot;: &quot;{{CRR_ACTIVITY_NAME}}&quot;,&#13;&#10;&#9;&#9;&quot;ActivityStatus&quot;: &quot;FUNCTIONAL&quot;,&#13;&#10;&#9;&#9;&quot;ActivityStatusEnum&quot;: &quot;FAILURE&quot;,&#13;&#10;&#9;&#9;&quot;CorrelationId&quot;: &quot;{{CRR_CORRELATION_ID}}&quot;,&#13;&#10;&#9;&#9;&quot;Destination&quot;: &quot;{{=request_Header_Destination;/*CRM*/}}&quot;,&#13;&#10;&#9;&#9;&quot;MessageId&quot;: &quot;{{CRR_MSG_ID}}&quot;,&#13;&#10;&#9;&#9;&quot;MessageType&quot;: &quot;ERROR&quot;,&#13;&#10;&#9;&#9;&quot;Source&quot;: &quot;{{CRR_SRC}}&quot;,&#13;&#10;&#9;&#9;&quot;TimeStamp&quot;: &quot;{{CRR_TS}}&quot;&#13;&#10;&#9;},&#13;&#10;&#9;&quot;Payload&quot;: {&#13;&#10;&#9;&#9;&quot;Error&quot;: {&#13;&#10;&#9;&#9;&#9;&quot;ErrorCode&quot;: &quot;commonError-0003&quot;,&#13;&#10;&#9;&#9;&#9;&quot;Message&quot;: &quot;Mandatory Field Is Missing Or Empty Or Invalid from VIP Internal/External/Thirdparty Application while communicating with Internal/External/Thirdparty Application through Data Raptor or Apex [Channel is missing]&quot;,&#13;&#10;&#9;&#9;&#9;&quot;Type&quot;: &quot;Validation&quot;&#13;&#10;&#9;&#9;}&#13;&#10;&#9;}&#13;&#10;}</bd>
+</rp>
+</rs>
+</t>
+</st>
+<ucrr>
+<rp id="915" t="0">
+<m>
+<p n="HTTP-Response-Code">404</p>
+<p n="HTTP-Response-Code-Text">Not Found</p>
+<p n="Server">LISA/Virtual-Environment-Server</p>
+<p n="Date">{{=httpNow()}}</p>
+<p n="X-Powered-By">LISA/{{=lisaVersionString()}}</p>
+<p n="Content-Type">text/html</p>
+</m>
+<bd chs="UTF-8">&lt;html&gt;&#10;    &lt;head&gt;&lt;title&gt;404 Not Found&lt;/title&gt;&lt;/head&gt;&#10;    &lt;body&gt;&#10;        &lt;h1&gt;Not Found&lt;/h1&gt;&#10;        &lt;p&gt;The requested URL was not found on this server.&lt;/p&gt;&#10;        &lt;hr/&gt;&#10;        &lt;p&gt;&lt;i&gt;The DevTest VSE service could not match your request to a recorded request.&amp;nbsp; Consider expanding your service image.&lt;/i&gt;&lt;/p&gt;&#10;        &lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;Produced by a DevTest virtualized web server.&lt;/font&gt;&#10;    &lt;/body&gt;&#10;&lt;/html&gt;&#10;</bd>
+</rp>
+</ucrr>
+<usrr>
+<rp id="914" t="0">
+<m>
+<p n="HTTP-Response-Code">404</p>
+<p n="HTTP-Response-Code-Text">Not Found</p>
+<p n="Server">LISA/Virtual-Environment-Server</p>
+<p n="Date">{{=httpNow()}}</p>
+<p n="X-Powered-By">LISA/{{=lisaVersionString()}}</p>
+<p n="Content-Type">text/html</p>
+</m>
+<bd chs="UTF-8">&lt;html&gt;&#10;    &lt;head&gt;&lt;title&gt;404 Not Found&lt;/title&gt;&lt;/head&gt;&#10;    &lt;body&gt;&#10;        &lt;h1&gt;Not Found&lt;/h1&gt;&#10;        &lt;p&gt;The requested URL was not found on this server.&lt;/p&gt;&#10;        &lt;hr/&gt;&#10;        &lt;p&gt;&lt;i&gt;The DevTest VSE service could not match your request to a recorded request.&amp;nbsp; Consider expanding your service image.&lt;/i&gt;&lt;/p&gt;&#10;        &lt;br/&gt;&lt;font size=&quot;-2&quot;&gt;Produced by a DevTest virtualized web server.&lt;/font&gt;&#10;    &lt;/body&gt;&#10;&lt;/html&gt;&#10;</bd>
+</rp>
+</usrr>
+</serviceImage>

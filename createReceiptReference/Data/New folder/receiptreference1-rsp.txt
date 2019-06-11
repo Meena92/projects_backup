@@ -1,0 +1,20 @@
+{
+	"Header": {
+		"ActivityName": "createReceiptReference",
+		"ActivityStatus": "FUNCTIONAL",
+		"ActivityStatusEnum": "FAILURE",
+		"CorrelationId": "001",
+		"Destination": "CRM",
+		"MessageId": "tx123452",
+		"MessageType": "ERROR",
+		"Source": "Web",
+		"TimeStamp": "1999-01-28T17:27:47.112Z"
+	},
+	"Payload": {
+		"Error": {
+			"ErrorCode": "commonError-0003",
+			"Message": "Mandatory Field Is Missing Or Empty Or Invalid from VIP Internal/External/Thirdparty Application while communicating with Internal/External/Thirdparty Application through Data Raptor or Apex [Channel is missing]",
+			"Type": "Validation"
+		}
+	}
+}

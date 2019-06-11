@@ -1,0 +1,22 @@
+POST /createReceiptReference
+Authorization:string
+
+{
+"Header":{
+"ActivityName":"string",
+"ActivityStatus":"string",
+"ActivityStatusEnum":"string",
+"CorrelationId":"string",
+"Destination":"CRM",
+"MessageId":"string",
+"MessageType":"REQUEST",
+"Source":"CRM",
+"TimeStamp":"2019-04-16T04:32:34.694Z"
+},
+"Payload":{
+"ReceiptRequest":{
+"Channel":"string",
+"ReceiptReference":"string"
+}
+}
+}
